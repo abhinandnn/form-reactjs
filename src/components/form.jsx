@@ -24,6 +24,12 @@ function Form() {
             value={inputs.lastname}
             onChange={handleChange}
           />
+          <div className="gender" onChange={handleChange}>
+            <p className="gh">Gender:</p>
+        <input type="radio" value="Male" name="gender" /> Male
+        <input type="radio" value="Female" name="gender" /> Female
+        <input type="radio" value="Other" name="gender" /> Other
+      </div>
 
           <input
             type="email"

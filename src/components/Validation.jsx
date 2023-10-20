@@ -24,10 +24,10 @@ const [inputs, setInputs] = useState({
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newErrors = {
+    const error = {
     firstname: (inputs.firstname.trim()==='')|(inputs.firstname.length>15) ? 'lol' : '',
     lastname: (inputs.lastname.length>15) ? 'lol' : '',
-    address: (inputs.address.length>20) ? 'lol' : '',
+    address: (inputs.address.trim()==='')|(inputs.address.length>20) ? 'lol' : '',
     studentno: (inputs.studentno.trim()==='')|!(inputs.studentno.length===7) ? 'lol' : '',
     rollno: (inputs.rollno.trim()==='')|!(inputs.rollno.length===13) ? 'lol' : '',
     phone: (inputs.phone.trim() === '')|!(inputs.phone.length===10)? 'lol' : '',
@@ -38,8 +38,8 @@ const [inputs, setInputs] = useState({
   }
     
       let hasErrors = false;
-      for (const i in newErrors) {
-        if (newErrors[i] !== '') {
+      for (const i in error) {
+        if (error[i] !== '') {
           hasErrors = true;
           break;
         }
