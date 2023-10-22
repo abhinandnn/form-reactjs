@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const useForm = () => {
 const [inputs, setInputs] = useState({
@@ -27,19 +27,40 @@ const [error,setError]  =  useState({
     password: "",
     password2: ""
 })
-
+useEffect(() => {
+  setError(error => ({
+    ...error,
+     password2:inputs.password !== inputs.password2 ? "Passwords do not match." : ""
+    }))
+  }
+, [inputs.password, inputs.password2]);
   const handleChange = e => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value
     });
-    
+    setError( {
+      ...error,
+      [e.target.name]:
+        (e.target.name === "firstname" && !valid_text.test(e.target.value)) |
+    (e.target.name === "lastname" && !valid_text.test(e.target.value)) |
+      (e.target.name === "address" && !valid_text.test(e.target.value)) |
+        (e.target.name === "email" && (!email_valid.test(e.target.value) | e.target.value === "")) |
+         (e.target.name === "studentno" && !studentno_valid.test(e.target.value)) |
+     (e.target.name === "rollno" && !rollno_valid.test(e.target.value)) |
+        (e.target.name === "mobile" && !mobile_valid.test(e.target.value)) |
+     (e.target.name === "username" && (!username_valid.test(e.target.value) |e.target.value === "")) ||
+        (e.target.name === "password" && (!password_valid.test(e.target.value) | e.target.value === "" || e.target.value.length < 6)) ||
+       (e.target.name === "gender" && e.target.value === "")
+          ? `Enter the ${e.target.name} correctly!`
+          : ""
+    })
   };
   const email_valid= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const mobile_valid= /^((\+91)|(91)|0?)[6-9]\d{9}$/;
   const rollno_valid= /^[1-2]\d{12}$/;
   const studentno_valid= /^[1-2]\d{6}$/;
-  const valid_text=/^[a-zA-Z ]*$/;
+  const valid_text=/^[a-zA-Z][a-zA-Z ]{1,}$/;
   const username_valid=/^[a-zA-Z][a-zA-Z0-9._]{4,}$/;
   const password_valid=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}/;
   const handleSubmit = e => {

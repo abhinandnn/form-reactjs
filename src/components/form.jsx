@@ -15,7 +15,7 @@ function Form() {
           maxLength={20}
             type="text"
             name="firstname"
-            placeholder="Abhinandan"
+            placeholder="Should only contain Alphabets"
             value={inputs.firstname}
             onChange={handleChange}
           />
@@ -25,13 +25,13 @@ function Form() {
           maxLength={20}
             type="text"
             name="lastname"
-            placeholder="Pandey"
+            placeholder="Should only contain Alphabets"
             value={inputs.lastname}
             onChange={handleChange}
           />
           <p className="eror">{error.lastname}</p>
           <label>Gender:</label>
-          <div className="gender" onChange={handleChange}>
+          <div className="gender" onChange={handleChange} required>
         <input type="radio" value="Male" name="gender" /> Male
         <input type="radio" value="Female" name="gender" /> Female
         <input type="radio" value="Other" name="gender" /> Other
@@ -42,7 +42,7 @@ function Form() {
           maxLength={100}
             type="email"
             name="email"
-            placeholder="abhinandan2210049@akgec.ac.in"
+            placeholder="Should be a valid email"
             value={inputs.email}
             onChange={handleChange}
           />
