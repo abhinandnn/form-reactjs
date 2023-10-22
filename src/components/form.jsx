@@ -69,8 +69,8 @@ function Form() {
 <p className="eror">{error.rollno}</p>
 <label>Mobile No:</label>
           <input required
-          maxLength={13}
             type="number"
+            maxLength={13}
             name="mobile"
             placeholder="Must be of 10 digits"
             value={inputs.mobile}
@@ -99,7 +99,7 @@ function Form() {
           <p className="eror">{error.username}</p>
           <label>Password:</label>
           <input required
-          
+
             type="password"
             name="password"
             placeholder="Must have 6 characters"
