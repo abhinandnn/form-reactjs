@@ -11,7 +11,8 @@ function Form() {
 
         <div className="form__row">
           <label>First Name:</label>
-          <input
+          <input required
+          maxLength={20}
             type="text"
             name="firstname"
             placeholder="Abhinandan"
@@ -21,6 +22,7 @@ function Form() {
 <p className="eror">{error.firstname}</p>
 <label>Last Name:</label>
           <input
+          maxLength={20}
             type="text"
             name="lastname"
             placeholder="Pandey"
@@ -36,7 +38,8 @@ function Form() {
       </div>
         <p className="eror">{error.gender}</p>
         <label>Email:</label>
-          <input
+          <input required
+          maxLength={100}
             type="email"
             name="email"
             placeholder="abhinandan2210049@akgec.ac.in"
@@ -45,7 +48,8 @@ function Form() {
           />
           <p className="eror">{error.email}</p>
           <label>Student No:</label>
-          <input
+          <input required
+          maxLength={7}
             type="number"
             name="studentno"
             placeholder="Must be of 7 digits"
@@ -54,7 +58,8 @@ function Form() {
           />
           <p className="eror">{error.studentno}</p>
           <label>Roll No:</label>
-          <input
+          <input required
+           maxLength={13}
             type="number"
             name="rollno"
             placeholder="Must be of 13 digits"
@@ -63,7 +68,8 @@ function Form() {
           />
 <p className="eror">{error.rollno}</p>
 <label>Mobile No:</label>
-          <input
+          <input required
+          maxLength={13}
             type="number"
             name="mobile"
             placeholder="Must be of 10 digits"
@@ -72,7 +78,8 @@ function Form() {
           />
           <p className="eror">{error.mobile}</p>
           <label>City:</label>
-          <input
+          <input required
+          maxLength={30}
             type="textarea"
             name="address"
             placeholder="Lucknow"
@@ -81,7 +88,8 @@ function Form() {
           />
           <p className="eror">{error.address}</p>
           <label>Username:</label>
-          <input
+          <input required
+          maxLength={30}
             type="text"
             name="username"
             placeholder="Can contain english alphabets,numbers,'.'and'_'"
@@ -90,7 +98,8 @@ function Form() {
           />
           <p className="eror">{error.username}</p>
           <label>Password:</label>
-          <input
+          <input required
+          
             type="password"
             name="password"
             placeholder="Must have 6 characters"
@@ -99,7 +108,7 @@ function Form() {
           />
           <p className="eror">{error.password}</p>
           <label>Confirm Password</label>
-          <input
+          <input required
             type="password"
             name="password2"
             placeholder="Should be same as password"
