@@ -42,7 +42,7 @@ function Form() {
           maxLength={100}
             type="email"
             name="email"
-            placeholder="Should be a valid email"
+            placeholder="Should be not a valid email"
             value={inputs.email}
             onChange={handleChange}
           />
